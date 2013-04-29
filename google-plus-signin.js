@@ -16,7 +16,7 @@ angular.module('directive.g+signin', []).
         attrs.$set('class', 'g-signin');
         // @todo: write about the signinCallback
         attrs.$set('data-callback', 'signinCallback');
-        // attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
+        attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
         attrs.$set('data-cookiepolicy', 'single_host_origin');
         attrs.$set('data-requestvisibleactions', 'http://schemas.google.com/AddActivity');
         attrs.$set('data-scope', 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email');
