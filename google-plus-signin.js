@@ -13,7 +13,7 @@ angular.module('directive.g+signin', []).
       template: '<span></span>',
       replace: true,
       link: function (scope, element, attrs) {
-        
+        attrs.$set('class', 'g-signin');
         // @todo: write about the signinCallback
         attrs.$set('data-callback', 'signinCallback');
         // attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
