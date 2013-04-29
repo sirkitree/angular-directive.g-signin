@@ -33,6 +33,22 @@
           <p>^ This is a Google Plus sign-in button</p>
         </div>
       </div>
+      <div class="span6">
+        <div class="highlight">
+          <pre>  <span class="c1">// Callback for Google+ Sign-In</span>
+            <span class="kd">function</span> <span class="nx">signinCallback</span><span class="p">(</span><span class="nx">authResult</span><span class="p">)</span> <span class="p">{</span>
+
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">authResult</span><span class="p">);</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">[</span><span class="s1">'access_token'</span><span class="p">])</span> <span class="p">{</span>
+                <span class="c1">// User successfully authorized the G+ App!</span>
+
+              <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">[</span><span class="s1">'error'</span><span class="p">])</span> <span class="p">{</span>
+                <span class="c1">// User has not authorized the G+ App!</span>
+              <span class="p">}</span>
+            <span class="p">}</span> 
+          </pre>
+        </div>
+      </div>
     </div>
 
     <hr>
