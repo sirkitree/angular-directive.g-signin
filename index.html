@@ -40,5 +40,19 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <script src="google-plus-signin.js"></script>
+
+
+    <script>
+    // Callback for Google+ Sign-In
+    function signinCallback(authResult) {
+      console.log(authResult);
+      if (authResult['access_token']) {
+        // User successfully authorized the G+ App!
+
+      } else if (authResult['error']) {
+        // User has not authorized the G+ App!
+      }
+    } 
+    </script>
   </body>
 </html>
