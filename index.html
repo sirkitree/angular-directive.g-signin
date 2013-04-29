@@ -38,20 +38,11 @@
         </div>
       </div>
       <div class="span6">
-        <div class="highlight">
-          <pre>  <span class="c1">// Callback for Google+ Sign-In</span>
-            <span class="kd">function</span> <span class="nx">signinCallback</span><span class="p">(</span><span class="nx">authResult</span><span class="p">)</span> <span class="p">{</span>
-
-              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">authResult</span><span class="p">);</span>
-              <span class="k">if</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">[</span><span class="s1">'access_token'</span><span class="p">])</span> <span class="p">{</span>
-                <span class="c1">// User successfully authorized!</span>
-
-              <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">[</span><span class="s1">'error'</span><span class="p">])</span> <span class="p">{</span>
-                <span class="c1">// User has not authorized the G+ App!</span>
-              <span class="p">}</span>
-            <span class="p">}</span> 
-          </pre>
-        </div>
+        <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">"directive.g+signin"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;g</span><span class="err">+</span><span class="na">signin</span> <span class="na">clientid=</span><span class="s">"620125449078"</span><span class="nt">&gt;</span><span class="err">&lt;</span>/g+signin&gt;
+  <span class="nt">&lt;p&gt;</span>^ This is a Google Plus sign-in button<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
       </div>
     </div>
 
