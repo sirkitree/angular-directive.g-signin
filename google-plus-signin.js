@@ -16,14 +16,24 @@ angular.module('directive.g+signin', []).
         
         // Set class.
         attrs.$set('class', 'g-signin');
-        
-        // Set data attributes.
-        attrs.$set('data-callback', 'signinCallback');
+
         attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
-        attrs.$set('data-cookiepolicy', 'single_host_origin');
-        attrs.$set('data-requestvisibleactions', 'http://schemas.google.com/AddActivity');
-        attrs.$set('data-scope', 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email');
-        attrs.$set('data-width', 'wide');
+
+        // Some default values, based on prior versions of this directive
+        var defaults = {
+          callback: 'signinCallback',
+          cookiepolicy: 'single_host_origin',
+          requestvisibleactions: 'http://schemas.google.com/AddActivity',
+          scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
+          width: 'wide'
+        };
+
+        // Provide default values if not explicitly set
+        angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
+          if (!attrs.hasOwnProperty('data-' + propName)) {
+            attrs.$set('data-' + propName, defaults[propName]);
+          }
+        });
 
         // Asynchronously load the G+ SDK.
         (function() {
