@@ -14,14 +14,14 @@ angular.module('directive.g+signin', []).
       replace: true,
       link: function (scope, element, attrs) {
         
-        // Set the class on the element.  This has to be special cased, since it's a real HTML attribute.
+        // Set class.
         attrs.$set('class', 'g-signin');
 
         attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
         delete attrs.clientid; // Avoid duplication and potential confusion
 
         // Some default values, based on prior versions of this directive
-        var options = {
+        var defaults = {
           callback: 'signinCallback',
           cookiepolicy: 'single_host_origin',
           requestvisibleactions: 'http://schemas.google.com/AddActivity',
@@ -29,10 +29,10 @@ angular.module('directive.g+signin', []).
           width: 'wide'
         };
 
-        // Set the data-* attributes on the element, based on the defaults and information provided by
-        angular.forEach(Object.getOwnPropertyNames(options), function(elt) {
-          if (!(attrs.hasOwnProperty(elt) || attrs.hasOwnProperty('data-' + elt))) {
-            attrs.$set('data-' + elt, options[elt]);
+        // Provide default values if not explicitly set
+        angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
+          if (!(attrs.hasOwnProperty(propName) || attrs.hasOwnProperty('data-' + propName))) {
+            attrs.$set('data-' + propName, defaults[propName]);
           }
         });
 
