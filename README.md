@@ -32,18 +32,20 @@ See the [homepage](https://github.com/sirkitree/angular-directive.g-signin) for 
 </div>
 ```
 
+###Handling Signin Call Back From Google Plus
+You can inject $rootScope in your controllers or .run block and
+Catch 'event:google-plus-signin-success' and
+'event:google-plus-signin-error' events and handle them approcriately.
+
 ```javascript
-  // Callback for Google+ Sign-In
-  function signinCallback(authResult) {
-
+  $rootScope.$on('event:google-plus-signin-success',function(event,authResult){
     console.log(authResult);
-    if (authResult['access_token']) {
-      // User successfully authorized the G+ App!
-
-    } else if (authResult['error']) {
-      // User has not authorized the G+ App!
-    }
-  } 
+    //Send Login to server or save into cookie 
+  });
+   $rootScope.$on('event:google-plus-signin-failure',function(event,authResult){
+    console.log(authResult);
+    //Auth Failure Logic
+  });
 ```
 
 
