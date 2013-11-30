@@ -12,7 +12,7 @@
     <h1>Angular Google Plus Sign-in Directive</h1>
 
     <hr>
-    
+
     <h2>Usage</h2>
 
     <div class="row">
@@ -20,26 +20,26 @@
         <ol>
           <li>Include <code>google-plus-signin.js</code>.</li>
           <li>Add <code>directive.g+signin</code> as a dependency to your app.</li>
-          <li>Add <code>&lt;g+signin clientid="your-client-id"&gt;</code>s.</li>
+          <li>Add <code>&lt;google-plus-signin clientid="your-client-id"&gt;</code>s.</li>
           <li>Create a <code>signinCallback()</code> function to detect successful authentication. <em>Sample in the <a href="https://github.com/sirkitree/angular-directive.g-signin#example">README</a>.</li>
         </ol>
       </div>
     </div>
-    
+
     <hr>
-    
+
     <h2>In action</h2>
-    
+
     <div class="row">
       <div class="span6">
         <div ng-app="directive.g+signin">
-          <g+signin clientid="620125449078-4jo21sf1ltlb81o5cbke4sic3ogoo3gm"></g+signin>
+          <google-plus-signin clientid="620125449078-4jo21sf1ltlb81o5cbke4sic3ogoo3gm"></google-plus-signin>
           <p>^ This is a Google Plus sign-in button</p>
         </div>
       </div>
       <div class="span6">
         <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">"directive.g+signin"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;g</span><span class="err">+</span><span class="na">signin</span> <span class="na">clientid=</span><span class="s">"620125449078"</span><span class="nt">&gt;</span><span class="err">&lt;</span>/g+signin&gt;
+  <span class="nt">&lt;google-plus-signin</span> <span class="na">clientid=</span><span class="s">"620125449078"</span><span class="nt">&gt;&lt;/google-plus-signin&gt;</span>
   <span class="nt">&lt;p&gt;</span>^ This is a Google Plus sign-in button<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
@@ -64,7 +64,7 @@
       } else if (authResult['error']) {
         // User has not authorized the G+ App!
       }
-    } 
+    }
     </script>
   </body>
 </html>
