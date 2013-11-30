@@ -1,8 +1,8 @@
 {
   "name": "angular-directive.g-signin",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "./google-plus-signin.js",
   "dependencies": {
-    "angular": "~1.0.4"
+    "angular": "~1.2.0"
   }
 }

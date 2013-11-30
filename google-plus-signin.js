@@ -7,7 +7,7 @@
  */
 
 angular.module('directive.g+signin', []).
-  directive('g+signin', function () {
+  directive('googlePlusSignin', function () {
   return {
     restrict: 'E',
     template: '<span></span>',

@@ -9,7 +9,7 @@ A good starting place for a Google Plus sign-in button. Specify your client id a
 ## Usage
 1. Include `google-plus-signin.js`.
 2. Add `directive.g+signin` as a dependency to your app.
-3. Add `<g+signin clientid="your-client-id">` to your app.
+3. Add `<google-plus-signin clientid="your-client-id">` to your app.
 4. Create a `signinCallback()` function to detect when your users are authenticated.
 
 <!-- uncomment once available
@@ -27,7 +27,7 @@ See the [homepage](https://github.com/sirkitree/angular-directive.g-signin) for 
 
 ```html
 <div ng-app="directive.g+signin">
-  <g+signin clientid="620125449078"></g+signin>
+  <google-plus-signin clientid="620125449078"></google-plus-signin>
   <p>^ This is a Google Plus sign-in button</p>
 </div>
 ```
