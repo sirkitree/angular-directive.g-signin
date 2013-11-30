@@ -39,11 +39,9 @@ Catch 'event:google-plus-signin-success' and
 
 ```javascript
   $rootScope.$on('event:google-plus-signin-success',function(event,authResult){
-    console.log(authResult);
     //Send Login to server or save into cookie 
   });
    $rootScope.$on('event:google-plus-signin-failure',function(event,authResult){
-    console.log(authResult);
     //Auth Failure Logic
   });
 ```
