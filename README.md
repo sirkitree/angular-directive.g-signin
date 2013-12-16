@@ -13,14 +13,12 @@ A good starting place for a Google Plus sign-in button. Specify your client id a
 4. Create a listener on your `$scope` for `event:google-plus-signin-success` to detect when your users are authenticated.
 5. *Optional:* Listen for `event:google-plus-signin-failure` to handle authentication errors and sign outs.
 
-<!-- uncomment once available
 ## Bower
 Installable via `bower`:
 
 ```bash
 bower install angular-directive.g+signin
 ```
--->
 
 ## Example
 
