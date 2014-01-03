@@ -17,7 +17,7 @@ A good starting place for a Google Plus sign-in button. Specify your client id a
 Installable via `bower`:
 
 ```bash
-bower install angular-directive.g+signin
+bower install angular-directive.g-signin
 ```
 
 ## Example
