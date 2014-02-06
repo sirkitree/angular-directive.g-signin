@@ -10,12 +10,9 @@ angular.module('directive.g+signin', []).
   directive('googlePlusSignin', function () {
   return {
     restrict: 'E',
-    template: '<span></span>',
+    template: '<span class="g-signin"></span>',
     replace: true,
     link: function (scope, element, attrs) {
-
-      // Set class.
-      attrs.$set('class', 'g-signin');
 
       attrs.$set('data-clientid', attrs.clientid + '.apps.googleusercontent.com');
 
@@ -43,7 +40,7 @@ angular.module('directive.g+signin', []).
       })();
     }
   };
-}).run(['$window','$rootScope',function($window,$rootScope){
+}).run(['$window','$rootScope',function($window,$rootScope) {
   $window.signinCallback = function (authResult) {
     if(authResult && authResult.access_token){
       $rootScope.$broadcast('event:google-plus-signin-success',authResult);
