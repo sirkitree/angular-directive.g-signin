@@ -35,6 +35,14 @@ angular.module('directive.g+signin', []).
         }
       });
 
+      // Default language
+      // Supported languages: https://developers.google.com/+/web/api/supported-languages
+      attrs.$observe('language', function(value){
+        window.___gcfg = {
+          lang: value ? value : 'en'
+        };
+      });   
+      
       // Asynchronously load the G+ SDK.
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
