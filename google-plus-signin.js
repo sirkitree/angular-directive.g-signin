@@ -30,7 +30,7 @@ angular.module('directive.g+signin', []).
 
       // Provide default values if not explicitly set
       angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
-        if (!attrs.hasOwnProperty('data-' + propName)) {
+        if (!attrs.hasOwnProperty(propName)) {
           attrs.$set('data-' + propName, defaults[propName]);
         }
       });
