@@ -1,3 +1,5 @@
+/* global angular: true, window: true, document: true */
+
 'use strict';
 
 /*
@@ -19,12 +21,23 @@ angular.module('directive.g+signin', []).
 
       attrs.$set('data-clientid', attrs.clientid);
 
+      // If offline access is needed, add that in if the attribute is set
+      if ('offlineaccess' in attrs) {
+        attrs.$set('data-accesstype', 'offline');
+      }
+
+      var scopes = 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email';
+
+      if ('addscope' in attrs) {
+        scopes = scopes + ' ' + attrs.addscope;
+      }
+
       // Some default values, based on prior versions of this directive
       var defaults = {
         callback: 'signinCallback',
         cookiepolicy: 'single_host_origin',
         requestvisibleactions: 'http://schemas.google.com/AddActivity',
-        scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
+        scope: scopes,
         width: 'wide'
       };
 
@@ -42,7 +55,7 @@ angular.module('directive.g+signin', []).
           lang: value ? value : 'en'
         };
       });   
-      
+
       // Asynchronously load the G+ SDK.
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;

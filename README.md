@@ -19,6 +19,16 @@ A good starting place for a Google Plus sign-in button. Specify your client id a
   <google-plus-signin clientid="620125449078" language="sv"></google-plus-signin>
 ```
 
+2. Offline Access. Allows for the sending of a token to allow offline mode as described in [server-side flow](https://developers.google.com/+/web/signin/server-side-flow):
+```html
+  <google-plus-signin clientid="620125449078" offlineaccess></google-plus-signin>
+```
+
+3. Additional scopes. By default the scopes are https://www.googleapis.com/auth/plus.login and https://www.googleapis.com/auth/userinfo.email. This option will append the scopes you specify to the end of the default scopes. Separate scopes with a space:
+```html
+  <google-plus-signin clientid="620125449078" addscope="https://mail.google.com/"></google-plus-signin>
+```
+
 ## Bower
 Installable via `bower`:
 
