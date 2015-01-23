@@ -31,10 +31,10 @@ angular.module('directive.g+signin', []).
 
         defaults.clientid = attrs.clientid;
 
-        // Provide default values if not explicitly set
+        // Overwrite default values if explicitly set
         angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
-          if (!attrs.hasOwnProperty(propName)) {
-            attrs.$set('data-' + propName, defaults[propName]);
+          if (attrs.hasOwnProperty(propName)) {
+            defaults[propName] = attrs[propName];
           }
         });
 
