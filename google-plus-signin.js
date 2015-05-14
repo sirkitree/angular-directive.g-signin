@@ -27,6 +27,7 @@ angular.module('directive.g+signin', []).
           requestvisibleactions: 'http://schemas.google.com/AddActivity',
           scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
           width: 'wide',
+          state: ''
         };
 
         defaults.clientid = attrs.clientid;
