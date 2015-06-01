@@ -19,6 +19,7 @@ angular.module('directive.g+signin', []).
         attrs.clientid += (ending.test(attrs.clientid) ? '' : '.apps.googleusercontent.com');
 
         attrs.$set('data-clientid', attrs.clientid);
+        attrs.$set('theme', attrs.theme);
 
         // Some default values, based on prior versions of this directive
         var defaults = {
@@ -31,6 +32,7 @@ angular.module('directive.g+signin', []).
         };
 
         defaults.clientid = attrs.clientid;
+        defaults.theme = attrs.theme;
 
         // Overwrite default values if explicitly set
         angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
