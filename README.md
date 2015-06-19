@@ -1,7 +1,7 @@
 # Angular Google Plus Sign-in Button Directive
 
 
-[Homepage](https://github.com/sirkitree/angular-directive.g-signin)
+[Homepage](http://jeradbitner.com/angular-directive.g-signin/)
 
 
 A good starting place for a Google Plus sign-in button. Specify your client id and you're done. Well, almost. You'll also want to set up a listener for `event:google-plus-signin-success` so you can do something once your users are authenticated.
@@ -28,7 +28,7 @@ bower install angular-directive.g-signin
 
 ## Example
 
-See the [homepage](https://github.com/sirkitree/angular-directive.g-signin) for an example.
+See the [homepage](http://jeradbitner.com/angular-directive.g-signin/) for an example.
 
 ```html
 <div ng-app="directive.g+signin">
