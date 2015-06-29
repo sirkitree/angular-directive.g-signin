@@ -4,10 +4,11 @@
  * angular-google-plus-directive v0.0.1
  * ♡ CopyHeart 2013 by Jerad Bitner http://jeradbitner.com
  * Copying is an act of love. Please copy.
+ * Modified by Boni Gopalan to include Google oAuth2 Login.
  */
 
 angular.module('directive.g+signin', []).
-  directive('googlePlusSignin', ['$window', function ($window) {
+  directive('googlePlusSignin', ['$window', '$rootScope', function ($window,$rootScope) {
     var ending = /\.apps\.googleusercontent\.com$/;
 
     return {
@@ -19,21 +20,24 @@ angular.module('directive.g+signin', []).
         attrs.clientid += (ending.test(attrs.clientid) ? '' : '.apps.googleusercontent.com');
 
         attrs.$set('data-clientid', attrs.clientid);
-        attrs.$set('theme', attrs.theme);
 
         // Some default values, based on prior versions of this directive
+        function onSignIn (authResult) {
+          $rootScope.$broadcast('event:google-plus-signin-success', authResult);
+        }; 
+        function onSignInFailure () {
+          $rootScope.$broadcast('event:google-plus-signin-failure', null);
+        };         
         var defaults = {
-          callback: 'signinCallback',
+          onsuccess:onSignIn,
           cookiepolicy: 'single_host_origin',
-          requestvisibleactions: 'http://schemas.google.com/AddActivity',
-          scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
-          height: 'standard',
-          width: 'wide',
-          state: ''
+          onfailure:onSignInFailure,
+          scope: 'profile email',
+          'longtitle': false,
+          'theme': 'dark'          
         };
 
         defaults.clientid = attrs.clientid;
-        defaults.theme = attrs.theme;
 
         // Overwrite default values if explicitly set
         angular.forEach(Object.getOwnPropertyNames(defaults), function(propName) {
@@ -52,7 +56,7 @@ angular.module('directive.g+signin', []).
         
         // Asynchronously load the G+ SDK.
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/client:plusone.js';
+        po.src = 'https://apis.google.com/js/client:platform.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 
         linker(function(el, tScope){
@@ -60,18 +64,10 @@ angular.module('directive.g+signin', []).
             if (el.length) {
               element.append(el);
             }
-            gapi.signin.render(element[0], defaults);
+            gapi.signin2.render(element[0], defaults);
           };
         });
       }
     }
 }]).
-  run(['$window','$rootScope',function($window, $rootScope) {
-    $window.signinCallback = function (authResult) {
-      if (authResult && authResult.access_token){
-        $rootScope.$broadcast('event:google-plus-signin-success', authResult);
-      } else {
-        $rootScope.$broadcast('event:google-plus-signin-failure', authResult);
-      }
-    }; 
-}]);
+run();
