@@ -50,4 +50,6 @@ You can listen for `event:google-plus-signin-success` and `event:google-plus-sig
 ```
 
 ## License
+MIT
+
 ♡ CopyHeart 2013 by [Jerad Bitner](http://jeradbitner.com) | Copying is an act of love. Please copy.
