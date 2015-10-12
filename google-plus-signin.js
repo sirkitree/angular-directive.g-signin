@@ -32,6 +32,10 @@ angular.module('directive.g+signin', []).
           state: ''
         };
 
+        if (attrs.scope) {
+            defaults.scope = attrs.scope;
+        }
+        
         defaults.clientid = attrs.clientid;
         defaults.theme = attrs.theme;
 
