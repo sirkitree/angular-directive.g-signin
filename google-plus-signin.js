@@ -43,7 +43,10 @@ angular.module('directive.g+signin', []).
               // Overwrite default values if explicitly set
               angular.forEach(Object.getOwnPropertyNames(defaults), function (propName) {
                   if (attrs.hasOwnProperty(propName)) {
-                      defaults[propName] = attrs[propName];
+                      if(propName == 'onsuccess' || propName == 'onfailure')
+                        defaults[propName] = window[attrs[propName]];
+                      else
+                        defaults[propName] = attrs[propName];
                   }
               });
               var isAutoRendering = (defaults.autorender !== undefined && (defaults.autorender === 'true' || defaults.autorender === true));
