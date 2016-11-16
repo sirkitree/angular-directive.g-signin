@@ -101,7 +101,7 @@ angular.module('directive.g+signin', []).
                           if (isAutoRendering) {
                               gapi.signin2.render(element[0], defaults);
                           } else {
-                              googleAuthObj.attachClickHandler(defaults.customtargetid, {}, defaults.onsuccess, defaults.onfailure);
+                              googleAuthObj.attachClickHandler(defaults.customtargetid, defaults, defaults.onsuccess, defaults.onfailure);
                           }
                       });
                   };
