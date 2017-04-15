@@ -44,7 +44,10 @@ angular.module('directive.g+signin', []).
               // Overwrite default values if explicitly set
               angular.forEach(Object.getOwnPropertyNames(defaults), function (propName) {
                   if (attrs.hasOwnProperty(propName)) {
-                      defaults[propName] = attrs[propName];
+                      if(propName == 'onsuccess' || propName == 'onfailure')
+                        defaults[propName] = window[attrs[propName]];
+                      else
+                        defaults[propName] = attrs[propName];
                   }
               });
               var isAutoRendering = (defaults.autorender !== undefined && (defaults.autorender === 'true' || defaults.autorender === true));
@@ -99,7 +102,7 @@ angular.module('directive.g+signin', []).
                           if (isAutoRendering) {
                               gapi.signin2.render(element[0], defaults);
                           } else {
-                              googleAuthObj.attachClickHandler(defaults.customtargetid, {}, defaults.onsuccess, defaults.onfailure);
+                              googleAuthObj.attachClickHandler(defaults.customtargetid, defaults, defaults.onsuccess, defaults.onfailure);
                           }
                       });
                   };
