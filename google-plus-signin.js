@@ -7,7 +7,7 @@
  * Modified by Boni Gopalan to include Google oAuth2 Login.
  * Modified by @barryrowe to provide flexibility in clientid, and rendering
  *  --loads auth2 and runs init() so clientid can still be defined as an attribute
- *  --attribute 'autorender' added. Defaults to true; if false gapi.signin2.render() 
+ *  --attribute 'autorender' added. Defaults to true; if false gapi.signin2.render()
  *    won't be called on the element
  *  --attribute 'customtargetid' added. Allows any custom element id to be the target of
  *    attachClickHandler() if 'autorender' is set to false
@@ -35,7 +35,7 @@ angular.module('directive.g+signin', []).
                   longtitle: false,
                   theme: 'dark',
                   autorender: true,
-                  access_type : online,
+                  access_type : 'online',
                   customtargetid: 'googlebutton'
               };
 
